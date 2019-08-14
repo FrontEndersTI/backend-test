@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../src/App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\nimport {onMount} from \"svelte\"\n\timport { fade } from 'svelte/transition';\n\timport { elasticOut } from 'svelte/easing';\n\n\tlet visible = false;\n\n\tfunction spin(node, { duration }) {\n\t\treturn {\n\t\t\tduration,\n\t\t\tcss: t => {\n\t\t\t\tconst eased = elasticOut(t);\n\n\t\t\t\treturn `\n\t\t\t\t\ttransform: scale(${eased}) rotate(${eased * 1080}deg);\n\t\t\t\t\tcolor: hsl(\n\t\t\t\t\t\t${~~(t * 360)},\n\t\t\t\t\t\t${Math.min(100, 1000 - 1000 * t)}%,\n\t\t\t\t\t\t${Math.min(50, 500 - 500 * t)}%\n\t\t\t\t\t);`\n\t\t\t}\n\t\t};\n\t}\n\n\tonMount(() => {\n\t\tvisible = true;\n\t})\n</script>\n\n<style>\n\t.centered {\n\t\tposition: absolute;\n\t\tleft: 50%;\n\t\ttop: 50%;\n\t\ttransform: translate(-50%,-50%);\n\t}\n\n\t.content {\n\t\tposition: absolute;\n\t\ttransform: translate(-50%,-50%);\n\t\tfont-size: 4em;\n\t\ttext-align: center;\n\t}\n\n\t.content img{\n\t\tmax-height: 100px;\n\t}\n</style>\n\n\n{#if visible}\n\t<div class=\"centered\" in:spin=\"{{duration: 8000}}\" out:fade>\n\t<div class=\"content\">\n\t\t<img src=\"foti_logo.png\" alt=\"logo\"/>\n\t\t<span>Frontenders Ticino</span>\n\t\t</div>\n\t</div>\n{/if}"
+  ],
+  "names": [],
+  "mappings": "AA8BC,SAAS,cAAC,CAAC,AACV,QAAQ,CAAE,QAAQ,CAClB,IAAI,CAAE,GAAG,CACT,GAAG,CAAE,GAAG,CACR,SAAS,CAAE,UAAU,IAAI,CAAC,IAAI,CAAC,AAChC,CAAC,AAED,QAAQ,cAAC,CAAC,AACT,QAAQ,CAAE,QAAQ,CAClB,SAAS,CAAE,UAAU,IAAI,CAAC,IAAI,CAAC,CAC/B,SAAS,CAAE,GAAG,CACd,UAAU,CAAE,MAAM,AACnB,CAAC,AAED,sBAAQ,CAAC,iBAAG,CAAC,AACZ,UAAU,CAAE,KAAK,AAClB,CAAC"
+}
