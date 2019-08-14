@@ -52,7 +52,7 @@ import {onMount} from "svelte"
 	<div class="centered" in:spin="{{duration: 8000}}" out:fade>
 	<div class="content">
 		<img src="foti_logo.png" alt="logo"/>
-		<span>Frontenders Ticino test</span>
+		<span>Frontenders Ticino</span>
 		</div>
 	</div>
 {/if}
