@@ -45,6 +45,10 @@ import {onMount} from "svelte"
 	.content img{
 		max-height: 100px;
 	}
+
+	.content span{
+		white-space: nowrap;
+	}
 </style>
 
 
